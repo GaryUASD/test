@@ -4,6 +4,7 @@ import figuras.DibujoLibre;
 import figuras.Figura;
 import figuras.Linea;
 import figuras.Rectangulo;
+import figuras.Ovalo;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -35,6 +36,11 @@ class PanelDeDibujo extends JPanel {
          else if(ventana.getMenuItemRectangulo().isSelected() ){
            figuraActual = new Rectangulo(evento.getPoint());
          }
+         else if(ventana.getMenuItemOvalo().isSelected() ){
+           figuraActual = new Ovalo(evento.getPoint());
+           requestFocus();
+           
+         }
          else{
           figuraActual = new DibujoLibre( evento.getPoint() );
          }
@@ -52,7 +58,7 @@ class PanelDeDibujo extends JPanel {
        }
      });
   }
-  
+
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
